@@ -1,0 +1,23 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 26d09187608c47a4cb50c65d840b83be, type: 3}
+  m_Name: Cow
+  m_EditorClassIdentifier: 
+  specie: Cow
+  preferedFood: {fileID: 11400000, guid: 9d634664c5591754190ca326d9b3ef80, type: 2}
+  maxHeight: 1.7
+  minHeight: 1.3
+  hungerFull: 100
+  hungerDepRate: 5
+  lifeSpan: 20
+  sprite: {fileID: -2135585597343286014, guid: 69642de339f0f8a45932705a7d63b6d7, type: 3}
+  tint: {r: 0.4528302, g: 0.17088012, b: 0, a: 1}
