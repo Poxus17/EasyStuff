@@ -49,5 +49,9 @@ public class MouseController : MonoBehaviour
         }
     }
 
+    public void Click(InputAction.CallbackContext context)
+    {
+        Debug.Log(context.started);
+    }
 
 }

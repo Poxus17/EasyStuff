@@ -62,5 +62,9 @@ public class FarmManager : MonoBehaviour
         updateResourceUi();
     }
 
+    FoodFile GetCurrentResource()
+    {
+        return farmResources[currentIndex];
+    }
 }
 
