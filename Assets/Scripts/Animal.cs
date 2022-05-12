@@ -19,6 +19,8 @@ public class Animal : MonoBehaviour
 
     const float meterToInch = 39.3700787f; //conversion rate from meters to inches;
 
+    public static Animal observed;
+
     public AnimalDataPacket myPacket {  get; private set; }
 
     private void Awake()
@@ -66,18 +68,21 @@ public class Animal : MonoBehaviour
 
     void HungerTick()
     {
-        Debug.Log(GetProportionHunger());
         hunger -= file.hungerDepRate;
-        UiAnimalDataHandler.main.UpdateHunger(GetProportionHunger());
+
+        if(this == observed)
+        {
+            UiAnimalDataHandler.main.UpdateHunger(GetProportionHunger());
+        }
     }
 
     /// <summary>
     /// Get how full the hunger is
     /// </summary>
     /// <returns>A value between 0 and 1, 1 being full</returns>
-    float GetProportionHunger()
+    public float GetProportionHunger()
     {
-        return (hunger / file.hungerFull);
+        return hunger / file.hungerFull;
     }
 
     KeyValuePair<int, int> ConvertHeightToFeet()
@@ -91,5 +96,16 @@ public class Animal : MonoBehaviour
     string GetHeight()
     {
         return (height.Key + "\'" + height.Value + "\"");
+    }
+
+    public FoodFile GetPrefferedFood()
+    {
+        return file.preferedFood;
+    }
+
+    public float Feed()
+    {
+        hunger += file.preferedFood.nutrition;
+        return GetProportionHunger();
     }
 }

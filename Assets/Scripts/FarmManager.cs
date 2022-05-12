@@ -6,6 +6,8 @@ using TMPro;
 
 public class FarmManager : MonoBehaviour
 {
+    public static FarmManager main;
+
     [SerializeField] FoodFile[] farmResources;
     [SerializeField] TextMeshProUGUI foodName;
     [SerializeField] TextMeshProUGUI foodAmount;
@@ -14,7 +16,18 @@ public class FarmManager : MonoBehaviour
 
     int currentIndex;
 
-    // Start is called before the first frame update
+    private void Awake()
+    {
+        if(main != default)
+        {
+            Destroy(this);
+        }
+        else
+        {
+            main = this;
+        }
+    }
+
     void Start()
     {
         /* ResourceValues is defined by the content of farmResources
@@ -62,9 +75,14 @@ public class FarmManager : MonoBehaviour
         updateResourceUi();
     }
 
-    FoodFile GetCurrentResource()
+    public FoodFile GetCurrentResource()
     {
         return farmResources[currentIndex];
+    }
+
+    public bool ConfirmFood()
+    {
+        return resourceValues[currentIndex] > 0;
     }
 }
 

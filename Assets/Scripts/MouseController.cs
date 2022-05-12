@@ -7,12 +7,14 @@ public class MouseController : MonoBehaviour
 {
     bool readingAnimal;
     UiAnimalDataHandler animalDataHandler;
+    FarmManager farm;
 
     // Start is called before the first frame update
     void Start()
     {
         readingAnimal = false;
         animalDataHandler = UiAnimalDataHandler.main;
+        farm = FarmManager.main;
     }
 
     // Update is called once per frame
@@ -23,23 +25,20 @@ public class MouseController : MonoBehaviour
 
     public void Hover(InputAction.CallbackContext context)
     {
-        Vector2 screenPos = context.ReadValue<Vector2>();
-        Vector3 mousePos = Camera.main.ScreenToWorldPoint(screenPos);
 
-        Vector2 mousePos2D = new Vector2(mousePos.x, mousePos.y);
-
-        RaycastHit2D hit = Physics2D.Raycast(mousePos2D, Vector2.zero);
-
+        RaycastHit2D hit = RaycastMouse(context.ReadValue<Vector2>());
         AnimalDataPacket transferPacket;
         if (hit.collider != null)
         {
             Animal detectedAnimal = hit.collider.gameObject.GetComponent<Animal>();
+            Animal.observed = detectedAnimal;
 
             readingAnimal = (detectedAnimal != null);
 
             transferPacket = detectedAnimal.myPacket;
 
             animalDataHandler.AttachDataToAnimal(detectedAnimal.transform.position);
+            animalDataHandler.UpdateHunger(detectedAnimal.GetProportionHunger());
         }
         else
         {
@@ -55,7 +54,27 @@ public class MouseController : MonoBehaviour
 
     public void Click(InputAction.CallbackContext context)
     {
-        Debug.Log(context.started);
+        if (context.started)
+        {
+            if (readingAnimal)
+            {
+                if (Animal.observed.GetPrefferedFood() == farm.GetCurrentResource() && farm.ConfirmFood())
+                {
+                    animalDataHandler.UpdateHunger(Animal.observed.Feed());
+                    farm.addFood(-1);
+                }
+            }
+        }
+        
+        
     }
 
+    RaycastHit2D RaycastMouse(Vector2 screenPos)
+    {
+        Vector3 mousePos = Camera.main.ScreenToWorldPoint(screenPos);
+
+        Vector2 mousePos2D = new Vector2(mousePos.x, mousePos.y);
+
+        return Physics2D.Raycast(mousePos2D, Vector2.zero); ;
+    }
 }

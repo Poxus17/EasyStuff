@@ -6,7 +6,7 @@ using UnityEngine;
 public class FoodFile : ScriptableObject
 {
     public string name;
-    public float nutrition;
+    public int nutrition;
     public Sprite icon;
     public Color tint;
 }
