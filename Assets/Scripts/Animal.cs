@@ -17,7 +17,7 @@ public class Animal : MonoBehaviour
     SpriteRenderer spriteRenderer;
     BoxCollider2D boxCollider;
 
-    const float meterToInch = 39.3700787f; //conversion rate from meters to inches;
+    const float METER_TO_INCH = 39.3700787f; //conversion rate from meters to inches;
 
     public static Animal observed;
 
@@ -89,7 +89,7 @@ public class Animal : MonoBehaviour
     KeyValuePair<int, int> ConvertHeightToFeet()
     {
         float height = Random.Range(file.minHeight, file.maxHeight); //roll height
-        float inches = height * meterToInch; //convert to inches
+        float inches = height * METER_TO_INCH; //convert to inches
 
         return new KeyValuePair<int, int>((int)inches / 12, (int)inches % 12); // return as pair
     }

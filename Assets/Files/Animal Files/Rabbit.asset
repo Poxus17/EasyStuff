@@ -20,4 +20,4 @@ MonoBehaviour:
   hungerDepRate: 1
   lifeSpan: 9
   sprite: {fileID: -2135585597343286014, guid: 69642de339f0f8a45932705a7d63b6d7, type: 3}
-  tint: {r: 0.754717, g: 0.754717, b: 0.754717, a: 0}
+  tint: {r: 0.754717, g: 0.754717, b: 0.754717, a: 1}
