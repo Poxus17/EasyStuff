@@ -4,6 +4,7 @@ using UnityEngine;
 
 [RequireComponent (typeof(SpriteRenderer))]
 [RequireComponent(typeof(BoxCollider2D))]
+[RequireComponent(typeof(Rigidbody2D))]
 public class Animal : MonoBehaviour
 {
     [SerializeField] AnimalFile file;
@@ -24,6 +25,7 @@ public class Animal : MonoBehaviour
     {
         spriteRenderer = GetComponent<SpriteRenderer>();
         boxCollider = GetComponent<BoxCollider2D>();
+        GetComponent<Rigidbody2D>().gravityScale = 0;
 
         ApplyFile();
     }
