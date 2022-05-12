@@ -12,12 +12,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 26d09187608c47a4cb50c65d840b83be, type: 3}
   m_Name: Chicken
   m_EditorClassIdentifier: 
-  specie: 
-  preferedFood: {fileID: 0}
-  maxHeight: 0
-  minHeight: 0
-  hungerFull: 0
-  hungerDepRate: 0
-  lifeSpan: 0
-  sprite: {fileID: 0}
-  tint: {r: 0, g: 0, b: 0, a: 0}
+  specie: Chicken
+  preferedFood: {fileID: 11400000, guid: 68a968ec7819393429c7954307318e37, type: 2}
+  maxHeight: 0.4
+  minHeight: 0.1
+  hungerFull: 50
+  hungerDepRate: 7
+  lifeSpan: 10
+  sprite: {fileID: -2135585597343286014, guid: 69642de339f0f8a45932705a7d63b6d7, type: 3}
+  tint: {r: 0.7830189, g: 0.624914, b: 0.5281684, a: 1}

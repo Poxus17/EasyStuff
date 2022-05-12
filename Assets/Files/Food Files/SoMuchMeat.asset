@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: faf07508caa74cc4face9356b83e87bb, type: 3}
   m_Name: SoMuchMeat
   m_EditorClassIdentifier: 
-  name: 
+  name: SO MUCH meat
   nutrition: 0
   icon: {fileID: 0}
   tint: {r: 0, g: 0, b: 0, a: 0}
