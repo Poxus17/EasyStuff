@@ -18,6 +18,8 @@ public class Animal : MonoBehaviour
 
     const float meterToInch = 39.3700787f; //conversion rate from meters to inches;
 
+    public AnimalDataPacket myPacket {  get; private set; }
+
     private void Awake()
     {
         spriteRenderer = GetComponent<SpriteRenderer>();
@@ -52,8 +54,10 @@ public class Animal : MonoBehaviour
 
         Vector2 S = spriteRenderer.sprite.bounds.size;
         boxCollider.size = S;
-        boxCollider.offset = new Vector2((S.x / 2), 0);
+        //boxCollider.offset = new Vector2((S.x / 2), 0);
 
+
+        myPacket = new AnimalDataPacket(file.specie, age.ToString(), GetHeight());
     }
 
     /// <summary>

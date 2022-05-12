@@ -5,10 +5,12 @@ using UnityEngine.InputSystem;
 
 public class MouseController : MonoBehaviour
 {
+    bool readingAnimal;
+
     // Start is called before the first frame update
     void Start()
     {
-        
+        readingAnimal = false;
     }
 
     // Update is called once per frame
@@ -26,11 +28,25 @@ public class MouseController : MonoBehaviour
 
         RaycastHit2D hit = Physics2D.Raycast(mousePos2D, Vector2.zero);
 
+        AnimalDataPacket transferPacket;
         if (hit.collider != null)
         {
-            Debug.Log("Up");
+            Animal detectedAnimal = hit.collider.gameObject.GetComponent<Animal>();
+
+            readingAnimal = (detectedAnimal != null);
+
+            transferPacket = detectedAnimal.myPacket;
+        }
+        else
+        {
+            readingAnimal = false;
+            transferPacket = null;
         }
 
+        if (UiAnimalDataHandler.main.GetVisible() != readingAnimal)
+        {
+            UiAnimalDataHandler.main.UpdateUiData(transferPacket);
+        }
     }
 
 
