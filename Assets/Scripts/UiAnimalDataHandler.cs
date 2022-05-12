@@ -13,6 +13,9 @@ public class UiAnimalDataHandler : MonoBehaviour
     [SerializeField] TextMeshProUGUI height;
     [SerializeField] Image hunger;
     [SerializeField] GameObject childPanel;
+    [SerializeField] RectTransform canvasRect;
+    [SerializeField] Vector2 offset;
+
 
     private void Awake()
     {
@@ -28,6 +31,7 @@ public class UiAnimalDataHandler : MonoBehaviour
 
     private void Start()
     {
+        
     }
 
     public void UpdateUiData(AnimalDataPacket? packet)
@@ -54,6 +58,18 @@ public class UiAnimalDataHandler : MonoBehaviour
     public bool GetVisible()
     {
         return childPanel.activeSelf;
+    }
+
+    public void AttachDataToAnimal(Vector3 animalPos)
+    {
+        Vector2 viewportPosition = Camera.main.WorldToViewportPoint(animalPos);
+        Vector2 animalScreenPosition = new Vector2(
+        ((viewportPosition.x * canvasRect.sizeDelta.x) - (canvasRect.sizeDelta.x * 0.5f)),
+        ((viewportPosition.y * canvasRect.sizeDelta.y) - (canvasRect.sizeDelta.y * 0.5f)));
+
+        animalScreenPosition += offset;
+
+        GetComponent<RectTransform>().anchoredPosition = animalScreenPosition;
     }
 }
 

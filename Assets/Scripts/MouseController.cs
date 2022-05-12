@@ -6,11 +6,13 @@ using UnityEngine.InputSystem;
 public class MouseController : MonoBehaviour
 {
     bool readingAnimal;
+    UiAnimalDataHandler animalDataHandler;
 
     // Start is called before the first frame update
     void Start()
     {
         readingAnimal = false;
+        animalDataHandler = UiAnimalDataHandler.main;
     }
 
     // Update is called once per frame
@@ -36,6 +38,8 @@ public class MouseController : MonoBehaviour
             readingAnimal = (detectedAnimal != null);
 
             transferPacket = detectedAnimal.myPacket;
+
+            animalDataHandler.AttachDataToAnimal(detectedAnimal.transform.position);
         }
         else
         {
@@ -43,9 +47,9 @@ public class MouseController : MonoBehaviour
             transferPacket = null;
         }
 
-        if (UiAnimalDataHandler.main.GetVisible() != readingAnimal)
+        if (animalDataHandler.GetVisible() != readingAnimal)
         {
-            UiAnimalDataHandler.main.UpdateUiData(transferPacket);
+            animalDataHandler.UpdateUiData(transferPacket);
         }
     }
 
