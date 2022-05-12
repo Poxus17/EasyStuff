@@ -1251,7 +1251,7 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 2d3c41c8032426c41b5b25fff4cfac55, type: 2}
   - {fileID: 11400000, guid: 31cdb4e04ebf8af47878881170ab4e06, type: 2}
   animalName: {fileID: 2004766412}
-  emptyAnimalPrefab: {fileID: 0}
+  emptyAnimalPrefab: {fileID: 6915300758930917287, guid: 9fce0c144fbdf8948b1f2f9ffb2bd3c2, type: 3}
 --- !u!224 &532142368
 RectTransform:
   m_ObjectHideFlags: 0
@@ -3806,6 +3806,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Test Animal 1
       objectReference: {fileID: 0}
+    - target: {fileID: 6915300758930917304, guid: 9fce0c144fbdf8948b1f2f9ffb2bd3c2, type: 3}
+      propertyPath: file
+      value: 
+      objectReference: {fileID: 11400000, guid: 63818326b0abdca4fbcf762eec788b43, type: 2}
     - target: {fileID: 6915300758930917307, guid: 9fce0c144fbdf8948b1f2f9ffb2bd3c2, type: 3}
       propertyPath: m_RootOrder
       value: 1
