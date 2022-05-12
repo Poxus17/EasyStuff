@@ -37,6 +37,8 @@ public class Animal : MonoBehaviour
         Debug.Log(GetHeight());
         Debug.Log(age);
         Debug.Log(GetProportionHunger());
+
+        InvokeRepeating("HungerTick", 1, 1.5f);
     }
 
     // Update is called once per frame
@@ -62,6 +64,13 @@ public class Animal : MonoBehaviour
         myPacket = new AnimalDataPacket(file.specie, age.ToString(), GetHeight());
     }
 
+    void HungerTick()
+    {
+        Debug.Log(GetProportionHunger());
+        hunger -= file.hungerDepRate;
+        UiAnimalDataHandler.main.UpdateHunger(GetProportionHunger());
+    }
+
     /// <summary>
     /// Get how full the hunger is
     /// </summary>
@@ -78,8 +87,6 @@ public class Animal : MonoBehaviour
 
         return new KeyValuePair<int, int>((int)inches / 12, (int)inches % 12); // return as pair
     }
-
-
 
     string GetHeight()
     {

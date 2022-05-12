@@ -11,7 +11,7 @@ public class UiAnimalDataHandler : MonoBehaviour
     [SerializeField] TextMeshProUGUI specie;
     [SerializeField] TextMeshProUGUI age;
     [SerializeField] TextMeshProUGUI height;
-    [SerializeField] TextMeshProUGUI hunger;
+    [SerializeField] Image hunger;
     [SerializeField] GameObject childPanel;
 
     private void Awake()
@@ -44,6 +44,11 @@ public class UiAnimalDataHandler : MonoBehaviour
             height.text = packet.height;
         }
         
+    }
+
+    public void UpdateHunger(float fill)
+    {
+        hunger.fillAmount = fill;
     }
 
     public bool GetVisible()
