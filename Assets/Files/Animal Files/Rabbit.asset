@@ -1,0 +1,23 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 26d09187608c47a4cb50c65d840b83be, type: 3}
+  m_Name: Rabbit
+  m_EditorClassIdentifier: 
+  specie: Rabbit
+  preferedFood: {fileID: 11400000, guid: e8c9187bbd5f7ea48a3d28c36ae0f6e3, type: 2}
+  maxHeight: 0.1
+  minHeight: 0.02
+  hungerFull: 30
+  hungerDepRate: 1
+  lifeSpan: 9
+  sprite: {fileID: -2135585597343286014, guid: 69642de339f0f8a45932705a7d63b6d7, type: 3}
+  tint: {r: 0.754717, g: 0.754717, b: 0.754717, a: 0}

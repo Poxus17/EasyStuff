@@ -7,7 +7,7 @@ using UnityEngine;
 [RequireComponent(typeof(Rigidbody2D))]
 public class Animal : MonoBehaviour
 {
-    [SerializeField] AnimalFile file;
+    public AnimalFile file;
 
     float hunger;
     KeyValuePair<int, int> height;
@@ -29,12 +29,13 @@ public class Animal : MonoBehaviour
         boxCollider = GetComponent<BoxCollider2D>();
         GetComponent<Rigidbody2D>().gravityScale = 0;
 
-        ApplyFile();
+        
     }
 
     // Start is called before the first frame update
     void Start()
     {
+        ApplyFile();
         Debug.Log(file.specie);
         Debug.Log(GetHeight());
         Debug.Log(age);
