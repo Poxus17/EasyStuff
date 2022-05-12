@@ -13,6 +13,6 @@ MonoBehaviour:
   m_Name: Wheat
   m_EditorClassIdentifier: 
   name: Wheat
-  nutrition: 0
+  nutrition: 5
   icon: {fileID: 0}
   tint: {r: 0, g: 0, b: 0, a: 0}

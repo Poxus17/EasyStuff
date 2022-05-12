@@ -13,6 +13,6 @@ MonoBehaviour:
   m_Name: Seeds
   m_EditorClassIdentifier: 
   name: Seeds
-  nutrition: 0
+  nutrition: 1
   icon: {fileID: 0}
   tint: {r: 0, g: 0, b: 0, a: 0}

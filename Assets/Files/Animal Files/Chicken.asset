@@ -17,7 +17,7 @@ MonoBehaviour:
   maxHeight: 0.4
   minHeight: 0.1
   hungerFull: 50
-  hungerDepRate: 7
+  hungerDepRate: 1.5
   lifeSpan: 10
   sprite: {fileID: -2135585597343286014, guid: 69642de339f0f8a45932705a7d63b6d7, type: 3}
   tint: {r: 0.7830189, g: 0.624914, b: 0.5281684, a: 1}
