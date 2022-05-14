@@ -9,15 +9,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 26d09187608c47a4cb50c65d840b83be, type: 3}
-  m_Name: Sagiv
+  m_Script: {fileID: 11500000, guid: faf07508caa74cc4face9356b83e87bb, type: 3}
+  m_Name: DawmedSouls
   m_EditorClassIdentifier: 
-  specie: 
-  preferedFood: {fileID: 0}
-  maxHeight: 0
-  minHeight: 0
-  hungerFull: 0
-  hungerDepRate: 0
-  lifeSpan: 0
-  sprite: {fileID: 0}
+  name: Souls
+  nutrition: 100
+  icon: {fileID: 0}
   tint: {r: 0, g: 0, b: 0, a: 0}

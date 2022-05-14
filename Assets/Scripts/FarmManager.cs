@@ -58,7 +58,6 @@ public class FarmManager : MonoBehaviour
         {
             currentIndex = farmResources.Length - 1;
         }
-        Debug.Log(currentIndex);
 
         updateResourceUi();
     }

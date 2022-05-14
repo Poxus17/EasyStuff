@@ -1,13 +1,18 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Events;
 
 [RequireComponent (typeof(SpriteRenderer))]
 [RequireComponent(typeof(BoxCollider2D))]
 [RequireComponent(typeof(Rigidbody2D))]
+[RequireComponent(typeof(AudioSource))]
 public class Animal : MonoBehaviour
 {
     public AnimalFile file;
+    [SerializeField] GameObject ShitPrefab;
+    [SerializeField] Sprite shittingFace;
+    [SerializeField] AudioClip shittingSound;
 
     float hunger;
     KeyValuePair<int, int> height;
@@ -63,6 +68,10 @@ public class Animal : MonoBehaviour
     void HungerTick()
     {
         hunger -= file.hungerDepRate;
+        if(hunger <= 0)
+        {
+            Destroy(gameObject);
+        }
 
         if(this == observed)
         {
@@ -108,9 +117,30 @@ public class Animal : MonoBehaviour
         return GetProportionHunger();
     }
 
-    public void Talk(UnityEngine.Events.UnityAction whenFinished)
+    public void Talk(UnityAction whenFinished)
     {
-        Debug.Log("Talk");
+        GetComponent<AudioSource>().clip = file.sound;
+        GetComponent<AudioSource>().Play();
+        whenFinished.Invoke();
+    }
+
+    public void Shit(UnityAction whenFinished)
+    {
+        spriteRenderer.sprite = shittingFace;
+        GetComponent<AudioSource>().clip = shittingSound;
+        GetComponent<AudioSource>().Play();
+        StartCoroutine(WaitForShit(whenFinished));
+    }
+
+    IEnumerator WaitForShit(UnityAction whenFinished)
+    {
+        while (GetComponent<AudioSource>().isPlaying)
+        {
+            yield return null;
+        }
+
+        spriteRenderer.sprite = file.sprite;
+        Instantiate(ShitPrefab, transform.position + (Vector3.left * spriteRenderer.sprite.bounds.size.x), Quaternion.identity);
         whenFinished.Invoke();
     }
 }

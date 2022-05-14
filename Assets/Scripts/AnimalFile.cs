@@ -14,5 +14,5 @@ public class AnimalFile : ScriptableObject
     [Tooltip("In years")] public int lifeSpan;
     public Sprite sprite;
     public Color tint;
-
+    public AudioClip sound;
 }

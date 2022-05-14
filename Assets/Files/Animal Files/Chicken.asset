@@ -21,3 +21,4 @@ MonoBehaviour:
   lifeSpan: 10
   sprite: {fileID: -2135585597343286014, guid: 69642de339f0f8a45932705a7d63b6d7, type: 3}
   tint: {r: 0.7830189, g: 0.624914, b: 0.5281684, a: 1}
+  sound: {fileID: 8300000, guid: fad6ec3cea9a5f548a261e7268061f56, type: 3}
