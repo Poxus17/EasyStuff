@@ -124,6 +124,10 @@ public class Animal : MonoBehaviour
         whenFinished.Invoke();
     }
 
+    /// <summary>
+    /// I AM A FUCKING GENIUS
+    /// </summary>
+    /// <param name="whenFinished"></param>
     public void Shit(UnityAction whenFinished)
     {
         spriteRenderer.sprite = shittingFace;
