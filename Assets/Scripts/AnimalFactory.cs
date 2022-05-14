@@ -11,13 +11,8 @@ public class AnimalFactory : MonoBehaviour
     [SerializeField] AnimalFile[] files;
     [SerializeField] TextMeshProUGUI animalName;
     [SerializeField] GameObject emptyAnimalPrefab;
-    [SerializeField] Vector2 spawnAreaTrim;
-    Vector2 minSpawnPoint;
-    Vector2 maxSpawnPoint;
 
     int currentIndex;
-
-    const float SPRITE_Z_VALUE = 0;
 
     private void Awake()
     {
@@ -35,10 +30,7 @@ public class AnimalFactory : MonoBehaviour
     {
         currentIndex = 0;
 
-        minSpawnPoint = Camera.main.ViewportToWorldPoint(new Vector3(0, 0, 0));
-        minSpawnPoint += spawnAreaTrim;
-        maxSpawnPoint = Camera.main.ViewportToWorldPoint(new Vector3(1, 1, 0));
-        maxSpawnPoint -= spawnAreaTrim;
+        UpdateDisplay();
     }
 
     public void menuButtonPress(int dir)
@@ -60,7 +52,7 @@ public class AnimalFactory : MonoBehaviour
 
     public void MakeAnimal()
     {
-        GameObject cub = Instantiate(emptyAnimalPrefab, RollPosition(), Quaternion.identity);
+        GameObject cub = Instantiate(emptyAnimalPrefab, FarmlandManager.main.GetRandomPoint(), Quaternion.identity);
         cub.GetComponent<Animal>().file = files[currentIndex];
     }
 
@@ -69,8 +61,4 @@ public class AnimalFactory : MonoBehaviour
         animalName.text = files[currentIndex].specie;
     }
 
-    Vector3 RollPosition()
-    {
-        return new Vector3(Random.Range(minSpawnPoint.x, maxSpawnPoint.x), Random.Range(minSpawnPoint.y, maxSpawnPoint.y), SPRITE_Z_VALUE);
-    }
 }

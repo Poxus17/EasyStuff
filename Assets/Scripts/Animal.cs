@@ -23,23 +23,14 @@ public class Animal : MonoBehaviour
 
     public AnimalDataPacket myPacket {  get; private set; }
 
-    private void Awake()
+    // Start is called before the first frame update
+    void Start()
     {
         spriteRenderer = GetComponent<SpriteRenderer>();
         boxCollider = GetComponent<BoxCollider2D>();
         GetComponent<Rigidbody2D>().gravityScale = 0;
 
-        
-    }
-
-    // Start is called before the first frame update
-    void Start()
-    {
         ApplyFile();
-        Debug.Log(file.specie);
-        Debug.Log(GetHeight());
-        Debug.Log(age);
-        Debug.Log(GetProportionHunger());
 
         InvokeRepeating("HungerTick", 1, 1.5f);
     }
@@ -107,6 +98,13 @@ public class Animal : MonoBehaviour
     public float Feed()
     {
         hunger += file.preferedFood.nutrition;
+        if(hunger > file.hungerFull)
+        {
+            hunger = file.hungerFull;
+        }
+
         return GetProportionHunger();
     }
+
+
 }
