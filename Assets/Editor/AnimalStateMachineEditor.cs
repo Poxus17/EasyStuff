@@ -24,9 +24,9 @@ public class AnimalStateMachineEditor : Editor
             foreach(string s in enumNames)
             {
                 bool found = false;
-                foreach (StateOddsPair p in sm.stateValues)
+                foreach (StateOddsAction p in sm.stateValues)
                 {
-                    if(s == p.GetPair().Key.ToString())
+                    if(s == p.state.ToString())
                     {
                         found = true;
                         break;

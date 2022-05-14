@@ -41,6 +41,8 @@ public class Animal : MonoBehaviour
         
     }
 
+    
+
     void ApplyFile()
     {
         hunger = file.hungerFull;
@@ -106,5 +108,9 @@ public class Animal : MonoBehaviour
         return GetProportionHunger();
     }
 
-
+    public void Talk(UnityEngine.Events.UnityAction whenFinished)
+    {
+        Debug.Log("Talk");
+        whenFinished.Invoke();
+    }
 }

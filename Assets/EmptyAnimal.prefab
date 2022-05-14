@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 6915300758930917305}
   - component: {fileID: 6915300758930917308}
   - component: {fileID: 6915300758930917304}
-  - component: {fileID: -6528599223114974669}
+  - component: {fileID: -7707892283577233232}
   m_Layer: 0
   m_Name: EmptyAnimal
   m_TagString: Untagged
@@ -146,7 +146,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   file: {fileID: 0}
---- !u!114 &-6528599223114974669
+--- !u!114 &-7707892283577233232
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -158,12 +158,58 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 574ad0290c9a3ac41bdc368c81b4605f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  minTimer: 6
+  maxTimer: 2
+  speed: 3
   stateValues:
-  - state: 0
-    odds: 0
   - state: 1
-    odds: 0
+    odds: 0.4
+    action:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: -7707892283577233232}
+          m_TargetAssemblyTypeName: AnimalStateMachine, Assembly-CSharp
+          m_MethodName: Walk
+          m_Mode: 0
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
   - state: 2
-    odds: 0
+    odds: 0.5
+    action:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 6915300758930917304}
+          m_TargetAssemblyTypeName: Animal, Assembly-CSharp
+          m_MethodName: Talk
+          m_Mode: 0
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
   - state: 3
-    odds: 0
+    odds: 0.5
+    action:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: -7707892283577233232}
+          m_TargetAssemblyTypeName: AnimalStateMachine, Assembly-CSharp
+          m_MethodName: Shit
+          m_Mode: 0
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
