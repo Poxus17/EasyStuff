@@ -6,6 +6,9 @@ using UnityEngine.InputSystem;
 public class MouseController : MonoBehaviour
 {
     bool readingAnimal;
+    bool onShit;
+    GameObject pieceOfShit;
+
     UiAnimalDataHandler animalDataHandler;
     FarmManager farm;
 
@@ -19,7 +22,7 @@ public class MouseController : MonoBehaviour
 
     public void Hover(InputAction.CallbackContext context)
     {
-
+        onShit = false;
         RaycastHit2D hit = RaycastMouse(context.ReadValue<Vector2>());
         AnimalDataPacket transferPacket;
         if (hit.collider != null)
@@ -29,16 +32,20 @@ public class MouseController : MonoBehaviour
 
             readingAnimal = (detectedAnimal != null);
 
-            transferPacket = detectedAnimal.myPacket;
-
             if (readingAnimal)
             {
+                transferPacket = detectedAnimal.myPacket;
                 animalDataHandler.AttachDataToAnimal(detectedAnimal.transform.position);
                 animalDataHandler.UpdateHunger(detectedAnimal.GetProportionHunger());
             }
             else
             {
-
+                transferPacket = null;
+                if (hit.collider.gameObject.tag == "SHIT")
+                {
+                    onShit = true;
+                    pieceOfShit = hit.collider.gameObject;
+                }
             }
             
         }
@@ -65,6 +72,10 @@ public class MouseController : MonoBehaviour
                     animalDataHandler.UpdateHunger(Animal.observed.Feed());
                     farm.addFood(-1);
                 }
+            }
+            else if(onShit)
+            {
+                Destroy(pieceOfShit);
             }
         }
         
