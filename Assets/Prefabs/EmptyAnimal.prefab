@@ -244,6 +244,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   file: {fileID: 0}
   FeedPrefab: {fileID: 4241777601940449467, guid: 84058ab13aa386c4c8ba849a8b9bf989, type: 3}
+  ySize: 0.7
   ShitPrefab: {fileID: 6197689119557526394, guid: b35e1fbdef33b8840afc03a58f61f833, type: 3}
   shittingFace: {fileID: 21300000, guid: 766e576857fbaa041abda8868a546814, type: 3}
   shittingSound: {fileID: 8300000, guid: 2aa8b4caefd3b86488f34a1d1b0d14fc, type: 3}

@@ -17,12 +17,6 @@ public class MouseController : MonoBehaviour
         farm = FarmManager.main;
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
-
     public void Hover(InputAction.CallbackContext context)
     {
 
@@ -37,8 +31,16 @@ public class MouseController : MonoBehaviour
 
             transferPacket = detectedAnimal.myPacket;
 
-            animalDataHandler.AttachDataToAnimal(detectedAnimal.transform.position);
-            animalDataHandler.UpdateHunger(detectedAnimal.GetProportionHunger());
+            if (readingAnimal)
+            {
+                animalDataHandler.AttachDataToAnimal(detectedAnimal.transform.position);
+                animalDataHandler.UpdateHunger(detectedAnimal.GetProportionHunger());
+            }
+            else
+            {
+
+            }
+            
         }
         else
         {

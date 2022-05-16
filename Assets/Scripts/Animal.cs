@@ -11,6 +11,7 @@ public class Animal : MonoBehaviour
 {
     public AnimalFile file;
     [SerializeField] GameObject FeedPrefab;
+    [SerializeField] float ySize;
     [Space(10)]
     [Header("Shitty parameters")]
     [SerializeField] GameObject ShitPrefab;
@@ -111,13 +112,15 @@ public class Animal : MonoBehaviour
         }
 
         GameObject jFeedInst = Instantiate(FeedPrefab, transform);
+
         SpriteRenderer jFeedRenderer = jFeedInst.GetComponent<SpriteRenderer>();
 
         if(jFeedRenderer != null)
         {
             jFeedRenderer.sprite = file.preferedFood.icon;
-            float scale = spriteRenderer.sprite.bounds.size.x / jFeedRenderer.sprite.bounds.size.x;
+            float scale = ySize / jFeedRenderer.sprite.bounds.size.y;
             jFeedInst.transform.localScale = new Vector3(scale, scale, 1);
+            
         }
         
 
