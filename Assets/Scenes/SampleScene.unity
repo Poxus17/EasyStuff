@@ -613,6 +613,7 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 9d634664c5591754190ca326d9b3ef80, type: 2}
   - {fileID: 11400000, guid: 68a968ec7819393429c7954307318e37, type: 2}
   - {fileID: 11400000, guid: e8c9187bbd5f7ea48a3d28c36ae0f6e3, type: 2}
+  - {fileID: 11400000, guid: 91b484160f9db4a46a8d8b55930a320b, type: 2}
   foodName: {fileID: 1800953571}
   foodAmount: {fileID: 70391927}
 --- !u!1 &159583051
@@ -1105,6 +1106,7 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 63818326b0abdca4fbcf762eec788b43, type: 2}
   - {fileID: 11400000, guid: 2d3c41c8032426c41b5b25fff4cfac55, type: 2}
   - {fileID: 11400000, guid: 31cdb4e04ebf8af47878881170ab4e06, type: 2}
+  - {fileID: 11400000, guid: 9ec6c96322dd637419411d92b1d7c002, type: 2}
   animalName: {fileID: 2004766412}
   emptyAnimalPrefab: {fileID: 6915300758930917287, guid: 9fce0c144fbdf8948b1f2f9ffb2bd3c2, type: 3}
 --- !u!224 &532142368

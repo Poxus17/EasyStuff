@@ -14,5 +14,5 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   name: Seeds
   nutrition: 1
-  icon: {fileID: 0}
-  tint: {r: 0, g: 0, b: 0, a: 0}
+  icon: {fileID: 21300000, guid: 6c7ba97c1b08ee4418d7446b14d1bcc8, type: 3}
+  tint: {r: 0.6132076, g: 0.424133, b: 0, a: 0}

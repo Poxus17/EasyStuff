@@ -10,6 +10,9 @@ using UnityEngine.Events;
 public class Animal : MonoBehaviour
 {
     public AnimalFile file;
+    [SerializeField] GameObject FeedPrefab;
+    [Space(10)]
+    [Header("Shitty parameters")]
     [SerializeField] GameObject ShitPrefab;
     [SerializeField] Sprite shittingFace;
     [SerializeField] AudioClip shittingSound;
@@ -39,13 +42,6 @@ public class Animal : MonoBehaviour
 
         InvokeRepeating("HungerTick", 1, 1.5f);
     }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
-
     
 
     void ApplyFile()
@@ -114,9 +110,22 @@ public class Animal : MonoBehaviour
             hunger = file.hungerFull;
         }
 
+        GameObject jFeedInst = Instantiate(FeedPrefab, transform);
+        SpriteRenderer jFeedRenderer = jFeedInst.GetComponent<SpriteRenderer>();
+
+        if(jFeedRenderer != null)
+        {
+            jFeedRenderer.sprite = file.preferedFood.icon;
+            float scale = spriteRenderer.sprite.bounds.size.x / jFeedRenderer.sprite.bounds.size.x;
+            jFeedInst.transform.localScale = new Vector3(scale, scale, 1);
+        }
+        
+
+
         return GetProportionHunger();
     }
 
+    #region State functions
     public void Talk(UnityAction whenFinished)
     {
         GetComponent<AudioSource>().clip = file.sound;
@@ -147,4 +156,5 @@ public class Animal : MonoBehaviour
         Instantiate(ShitPrefab, transform.position + (Vector3.left * spriteRenderer.sprite.bounds.size.x), Quaternion.identity);
         whenFinished.Invoke();
     }
+    #endregion
 }
